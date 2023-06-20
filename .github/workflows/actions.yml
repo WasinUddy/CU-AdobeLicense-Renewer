@@ -4,7 +4,7 @@ on:
     - cron: '0 18 * * 1'
   workflow_dispatch:
 jobs:
-  scrape:
+  renew:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
