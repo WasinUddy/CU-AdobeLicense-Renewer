@@ -33,7 +33,7 @@ Contributions to this project are welcome! If you encounter any issues or have i
 This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
-This project is a python implementation of https://github.com/Leomotors/adobe-renew 🤣
+This project is a Python implementation of https://github.com/Leomotors/adobe-renew 🤣
 
-nah we just code it at the same time lmao
+nah we just code it at the same time this is a Tamporal Paradox
 
