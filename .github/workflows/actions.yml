@@ -1,7 +1,8 @@
 name: run renew adobe licenses
 on:
   schedule:
-    - cron: '20 13 * * 2'
+    - cron: '0 18 * * 1'
+  workflow_dispatch:
 jobs:
   scrape:
     runs-on: ubuntu-latest
