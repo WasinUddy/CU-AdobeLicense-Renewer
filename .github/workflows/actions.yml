@@ -1,7 +1,7 @@
-name: run renew adobe licenses
+name: run renew adobe licenses 
 on:
   schedule:
-    - cron: '30 11 * * 1'
+    - cron: '30 11 * * 1' 
   workflow_dispatch:
 jobs:
   renew:
