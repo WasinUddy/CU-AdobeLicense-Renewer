@@ -16,7 +16,8 @@ from datetime import datetime, timedelta
 
 def renew(username, password):
     
-    chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+    chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM, version="latest").install())
+
 
     chrome_options = Options()
     options = [
