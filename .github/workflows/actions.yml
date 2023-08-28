@@ -19,12 +19,10 @@ jobs:
         run: sudo apt purge google-chrome-stable
       - name: Remove default Chromium
         run: sudo apt purge chromium-browser
-      - name: Install Chrome 114
-        run: sudo apt install -y chromium-browser=114.0.0.0-0ubuntu1
+      - name: Install a new Chromium
+        run: sudo apt install -y chromium-browser
       - name: Install all necessary packages
-        run: pip install selenium==4.10.0 webdriver-manager==3.8.6
-      - name: Install ChromeDriver 114
-        run: webdriver-manager --chromedriver-version=114.0.0.0-0 install
+        run: pip install selenium webdriver-manager
       - name: Run the scraping script
         env:
           USERNAME: ${{ secrets.USERNAME }}
