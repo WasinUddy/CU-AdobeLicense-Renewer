@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
       - name: Installed package list
@@ -19,17 +19,12 @@ jobs:
         run: sudo apt purge google-chrome-stable
       - name: Remove default Chromium
         run: sudo apt purge chromium-browser
-      - name: Install a new Chromium
-        run: sudo apt install -y chromium-browser
-      - name: Install specific version of ChromeDriver
-        run: |
-          CHROMEDRIVER_VERSION=2.46
-          wget -qO /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-          unzip /tmp/chromedriver.zip -d /tmp
-          sudo mv /tmp/chromedriver /usr/local/bin/chromedriver
-          sudo chmod +x /usr/local/bin/chromedriver
+      - name: Install Chrome 114
+        run: sudo apt install -y chromium-browser=114.0.0.0-0ubuntu1
       - name: Install all necessary packages
         run: pip install selenium==4.10.0 webdriver-manager==3.8.6
+      - name: Install ChromeDriver 114
+        run: webdriver-manager --chromedriver-version=114.0.0.0-0 install
       - name: Run the scraping script
         env:
           USERNAME: ${{ secrets.USERNAME }}
