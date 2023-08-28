@@ -20,7 +20,7 @@ jobs:
       - name: Remove default Chromium
         run: sudo apt purge chromium-browser
       - name: Install a new Chromium
-        run: sudo apt install -y chromium-browser
+        run: sudo apt install -y chromium-browser=85.0.4183.83-0ubuntu2.22.04.1
       - name: Install all necessary packages
         run: pip install selenium==4.10.0 webdriver-manager==3.8.6
       - name: Run the scraping script
