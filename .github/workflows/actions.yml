@@ -1,4 +1,4 @@
-name: run renew adobe licenses 
+name: renew
 on:
   schedule:
     - cron: '30 11 * * 1' 
