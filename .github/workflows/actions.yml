@@ -22,7 +22,7 @@ jobs:
       - name: Install a new Chromium
         run: sudo apt install -y chromium-browser
       - name: Install all necessary packages
-        run: pip install selenium==4.10.0 webdriver-manager==3.8.6
+        run: pip install selenium webdriver-manager
       - name: Run the scraping script
         env:
           USERNAME: ${{ secrets.USERNAME }}
