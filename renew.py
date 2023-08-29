@@ -71,6 +71,6 @@ def renew(username, password):
     return True    
 
 import os
-USERNAME = "6538187821"
-PASSWORD = "jeHh6774"
+USERNAME = os.environ['USERNAME']
+PASSWORD = os.environ['PASSWORD']
 renew(USERNAME, PASSWORD)
