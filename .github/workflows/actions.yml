@@ -1,16 +1,16 @@
-name: run renew adobe licenses
+name: renew
 on:
   schedule:
-    - cron: '30 11 * * 1'
+    - cron: '30 11 * * 1' 
   workflow_dispatch:
 jobs:
   renew:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
       - name: Installed package list
@@ -22,7 +22,7 @@ jobs:
       - name: Install a new Chromium
         run: sudo apt install -y chromium-browser
       - name: Install all necessary packages
-        run: pip install selenium==4.10.0 webdriver-manager==3.8.6
+        run: pip install selenium webdriver-manager
       - name: Run the scraping script
         env:
           USERNAME: ${{ secrets.USERNAME }}
