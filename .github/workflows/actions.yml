@@ -13,14 +13,18 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - name: Installed package list
-        run: apt list --installed
       - name: Remove Chrome
-        run: sudo apt purge google-chrome-stable
-      - name: Remove default Chromium
-        run: sudo apt purge chromium-browser
-      - name: Install a new Chromium
-        run: sudo apt install -y chromium-browser
+        run: sudo apt purge --remove google-chrome-stable -y
+      - name: Remove old Chromium
+        run: sudo apt purge --remove chromium-browser -y
+      - name: Cleanup
+        run: sudo apt autoremove && sudo apt autoclean -y
+      - name: Delete Chromium
+        run: sudo rm -rf /usr/bin/chromium
+      - name: Install Chromium
+        run: sudo apt install chromium-browser -y
+      - name: Check Chromium Version
+        run:  chromium-browser --product-version
       - name: Install all necessary packages
         run: pip install selenium webdriver-manager
       - name: Run the scraping script
