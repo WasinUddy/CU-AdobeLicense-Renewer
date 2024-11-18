@@ -60,7 +60,8 @@ def renew(username, password):
     select = Select(select_element)
     select.select_by_value('5')
 
-    save_button = driver.find_element(By.XPATH, '//button[@type="submit"]')
+    save_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[text()='Save']")))
+    driver.execute_script("arguments[0].scrollIntoView(true);", save_button)
     save_button.click()
         
     driver.quit()
