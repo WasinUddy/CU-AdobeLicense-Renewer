@@ -7,7 +7,7 @@ def renew(username, password):
         with sync_playwright() as p:
             # Launch browser with necessary arguments
             browser = p.chromium.launch(
-                headless=True,
+                headless=False,
                 args=[
                     '--no-sandbox',
                     '--disable-dev-shm-usage',
@@ -32,7 +32,6 @@ def renew(username, password):
             page.click('button')
 
             # Wait for the 'Borrow' page to load and navigate
-            page.wait_for_navigation()
             page.goto('https://licenseportal.it.chula.ac.th/Home/Borrow')
 
             # Wait for expiry date field to load
@@ -53,15 +52,14 @@ def renew(username, password):
             # Wait for the Save button and click it
             page.wait_for_selector("button:text('Save')")
             page.click("button:text('Save')")
-
+            time.sleep(1)
             return True
 
     except Exception as e:
         print(f"An error occurred: {e}")
         return False
 
-    finally:
-        browser.close()
+        
 
 
 
