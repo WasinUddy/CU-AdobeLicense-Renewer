@@ -7,7 +7,7 @@ def renew(username, password):
         with sync_playwright() as p:
             # Launch browser with necessary arguments
             browser = p.chromium.launch(
-                headless=False,
+                headless=True,
                 args=[
                     '--no-sandbox',
                     '--disable-dev-shm-usage',
