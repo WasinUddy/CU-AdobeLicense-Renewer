@@ -1,33 +1,28 @@
 name: renew
 on:
   schedule:
-    - cron: '30 11 * * 1' 
+    - cron: '30 11 * * 1' # Every Monday at 11:30 AM
   workflow_dispatch:
+
 jobs:
   renew:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
         uses: actions/checkout@v3
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
-      - name: Remove Chrome
-        run: sudo apt purge --remove google-chrome-stable -y
-      - name: Remove old Chromium
-        run: sudo apt purge --remove chromium-browser -y
-      - name: Cleanup
-        run: sudo apt autoremove && sudo apt autoclean -y
-      - name: Delete Chromium
-        run: sudo rm -rf /usr/bin/chromium
-      - name: Install Chromium
-        run: sudo apt install chromium-browser -y
-      - name: Check Chromium Version
-        run:  chromium-browser --product-version
-      - name: Install all necessary packages
-        run: pip install selenium webdriver-manager
-      - name: Run the scraping script
+          python-version: '3.12'
+
+      - name: Install Playwright and Chromium
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          python -m playwright install chromium
+
+      - name: Run the renewal script
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
