@@ -1,5 +1,20 @@
 # CU-AdobeLicense-Renewer
 
+# Deprecation Notice 
+
+Hi everyone,
+
+Now that I've graduated, I will no longer be actively maintaining this repository.
+
+Over the past four years, this has been one of the simplest yet most enjoyable projects I've worked on. Thank you to everyone who has used it, reported issues, submitted pull requests, or contributed in any way. Your support has meant a lot.
+
+If you like the idea behind this project, please feel free to fork it, continue maintaining it, or build your own version.
+
+With love,
+
+**P'Uddy (CU106)**
+
+
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 [![Renew](https://github.com/WasinUddy/CU-AdobeLicense-Renewer/actions/workflows/actions.yml/badge.svg)](https://github.com/WasinUddy/CU-AdobeLicense-Renewer/actions/workflows/actions.yml)
 
